@@ -1,0 +1,51 @@
+<html>
+<head>
+	<!--外联css文件-->
+	<link rel="stylesheet" href="css/demo1.css">
+	<!--外联js文件-->
+	<script type="text/javascript" src="js/demo1.js"></script>
+
+	<title>酸菜鱼广场</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+表格:
+<table border="1" width="600" cellspacing="0" cellpadding="5" id="tableSCY">
+	<tr>
+		<th>姓名</th>
+		<th>年龄</th>
+		<th>专业</th>
+		<th>操作</th>
+	</tr>
+	<tr>
+		<td>cy</td>
+		<td>18</td>
+		<td >地信</td>
+		<td><img src="png/1.jpg" width="24" height="24" title="删除"/></td>
+	</tr>
+	<tr>
+		<td>sjm</td>
+		<td>20</td>
+		<td>ai</td>
+		<td><img src="png/1.jpg" width="24" height="24" title="删除"/></td>
+	</tr>
+	<tr>
+		<td>lch</td>
+		<td onmouseover="showHand()">25</td>
+		<td onmouseover="showHand()"> 不知道</td>
+		<td><img src="png/1.jpg" width="24" height="24" title="删除"/></td>
+	</tr>
+
+</table>
+
+
+<form action="add" method="post">
+	名字：<input type="text" name="fname"/><br/>
+	年龄：<input type="text" name="age"/><br/>
+	专业：<input type="text" name="major"/><br/>
+	<input type="submit" value="添加"/>
+</form>
+</body>
+
+
+</html>
