@@ -4,6 +4,7 @@
 	<link rel="stylesheet" href="css/demo1.css">
 	<!--外联js文件-->
 	<script type="text/javascript" src="js/demo1.js"></script>
+	<script type="text/javascript" src="js/vue.js"></script>
 
 	<title>酸菜鱼广场</title>
 	<meta charset="UTF-8">
@@ -38,13 +39,25 @@
 
 </table>
 
+<div id="root">
+	<form action="add" method="post">
+		{{name}}：<input type="text" name="fname"/><br/>
+		年龄：<input type="text" name="age"/><br/>
+		专业：<input type="text" name="major"/><br/>
+		<input type="submit" value="添加"/>
+	</form>
+</div>
 
-<form action="add" method="post">
-	名字：<input type="text" name="fname"/><br/>
-	年龄：<input type="text" name="age"/><br/>
-	专业：<input type="text" name="major"/><br/>
-	<input type="submit" value="添加"/>
-</form>
+
+	<script type="text/javascript">
+		new Vue({
+			el:'#root',//el用于指定vue实例为哪个对象使用，#字符串选择器，.类选择器
+			data:{
+				name:'名字'
+			}
+		})
+	</script>
+
 </body>
 
 

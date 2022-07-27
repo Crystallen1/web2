@@ -1,7 +1,6 @@
 window.onload = function (){
     //绑定事件
     var scyTbl = document.getElementById("tableSCY");
-
     var rows = scyTbl.rows;
     for (var i = 1; i < rows.length; i++) {
         var tr = rows[i];
