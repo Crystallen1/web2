@@ -39,13 +39,49 @@
 
 </table>
 
+<div id="root">
+	<form action="add" method="post"><!--		<button @click="showInfo">aaa</button>
+		<button @click="showInfo2(2)">bbb</button>-->
+		名字：<input type="text" name="fname" v-model:value="name"/><br/>
+		年龄：<input type="text" name="age" v-model:value="age"/><br/>
+		专业：<input type="text" name="major" v-model:value="major"/><br/>
+		<input type="submit" value="添加"/>
 
-<form action="add" method="post">
-	名字：<input type="text" name="fname"/><br/>
-	年龄：<input type="text" name="age"/><br/>
-	专业：<input type="text" name="major"/><br/>
-	<input type="submit" value="添加"/>
-</form>
+	</form>
+
+</div>
+
+
+
+
+	<script type="text/javascript">
+		const vm = new Vue({
+			//第一种绑定方法
+			//el:'#root',//el用于指定vue实例为哪个对象使用，#字符串选择器，.类选择器
+			data:function (){
+				return {
+					name: 'cy',
+					url: 'http://www.baidu.com',
+					age: '18',
+					major: 'gis'
+				}
+			},
+			methods:{
+				showInfo(){
+					alert('hhhh')
+			},
+			showInfo2(num){
+				alert(num);
+			}
+			}
+		})
+		//第二种绑定方法
+		console.log(vm)
+		vm.$mount('#root')
+
+
+	</script>
+
 </body>
 
 

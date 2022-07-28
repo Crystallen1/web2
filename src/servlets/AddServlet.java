@@ -29,20 +29,20 @@ public class AddServlet extends HttpServlet {
         //生成sql语句
         String sqlstr = "INSERT INTO test VALUES ('" +fname+ "'," + agestr+ ",'" +major+ "')";
         //连接数据库
-        sql.loadDB.getConnection();
+        try {
+            sql.loadDB.getConnection();
+        } catch (Exception e) {
+            System.out.println("连接失败");
+            throw new RuntimeException(e);
+        }
 
         //添加记录
         try {
-            sql.AddRecord.addRecord(sqlstr,conn);
+            sql.AddRecord.handleDML(sqlstr,conn);
             System.out.println("添加成功");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
-        System.out.println("major = " + major);
-        System.out.println("age = " + age);
-        System.out.println("fname = " + fname);
 
     }
 }

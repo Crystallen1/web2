@@ -1,7 +1,10 @@
 package sql;
 
+import com.alibaba.druid.pool.DruidDataSourceFactory;
 import org.testng.annotations.Test;
 
+import javax.sql.DataSource;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -19,34 +22,20 @@ public class loadDB {
     public static Connection conn;
 
     @Test
-    public static void getConnection() {
+    public static void getConnection() throws Exception {
+        System.out.println(System.getProperty("user.dir"));
         //读取配置文件中的数据库信息
-        InputStream is = loadDB.class.getClassLoader().getResourceAsStream("jdbc.properties");
         Properties pros = new Properties();
-        try {
-            pros.load(is);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        String user = pros.getProperty("user");
-        String password = pros.getProperty("password");
-        String url = pros.getProperty("url");
-        String driverClass = pros.getProperty("driverClass");
+        pros.load(new FileInputStream("D:/java/project1/src/jdbc.properties"));
 
-        //连接驱动
-        try {
-            Class.forName(driverClass);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        //连接数据库
-        try {
-            loadDB.conn = DriverManager.getConnection(url, user, password);
-            System.out.println(conn);
-            System.out.println("连接成功");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        //获取连接池对象
+        DataSource dataSource = DruidDataSourceFactory.createDataSource(pros);
+
+        //获取数据库连接
+        conn = dataSource.getConnection();
+
+        System.out.println(conn);
+
 
 
 
